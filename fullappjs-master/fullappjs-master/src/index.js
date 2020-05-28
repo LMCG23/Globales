@@ -52,6 +52,8 @@ app.use(require('./routes/index'));
 app.use(require('./routes/users'));
 app.use(require('./routes/diario'));
 app.use(require('./routes/login'));
+app.use(require('./routes/routines'));
+app.use(require('./routes/excercices'));
 
 //Statis files.
 
