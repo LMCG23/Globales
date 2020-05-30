@@ -2,12 +2,22 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const Users = require('../models/Users');
+const {isAuthenticated} = require('../helpers/auth');
 
 
 router.get('/users/signin', (req, res) => {
 
-    res.render('users/signin');
+     res.render('users/signin');
 })
+
+router.get('/users/getusers', isAuthenticated,async(req, res)=>{
+    const usuarios = await Users.find();
+    console.log(usuarios);
+
+    res.render('users/getusers',{usuarios});
+});
+
+
 
 router.post('/users/signin' , passport.authenticate('local',{
    successRedirect: '/main/dashboard',
@@ -18,6 +28,7 @@ router.post('/users/signin' , passport.authenticate('local',{
 router.get('/users/signup', (req, res) => {
     res.render('users/signup');
 });
+
 
 router.post('/users/signup', async(req, res)=>{
    const { name, email, password, confirmpass} = req.body;
