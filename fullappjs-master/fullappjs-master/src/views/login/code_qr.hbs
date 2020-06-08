@@ -1,0 +1,90 @@
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=Utf-8">
+  <script type="text/javascript" src="/js/demo/qrcode.js"></script>
+  <title itemprop="name">QR Code Generator</title>
+</head>
+
+<body onload="body_loadHander()"  class="bg-gradient-primary" >
+<div class="section">
+
+  <div class="container">
+
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+
+      <div class="col-xl-10 col-lg-12 col-md-9">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+          <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+              <div class="col-lg-6 d-none d-lg-block bg-password-image"></div>
+              <div class="col-lg-6">
+                <div class="p-5">
+                 
+<h1>Marcar entrada a la institucion</h1>
+
+<div itemprop="description">Genere su codigo qr digitando su usuario</div>
+
+<div class="section" >
+
+  <form name="qrForm">
+    <div style="display: none">
+    <span>TypeNumber:</span>
+    <select name="t"></select>
+    <span>ErrorCorrectionLevel:</span>
+    <select name="e">
+      <option value="L">L(7%)</option>
+      <option value="M" selected="selected">M(15%)</option>
+      <option value="Q">Q(25%)</option>
+      <option value="H">H(30%)</option>
+    </select>
+    <span>Mode:</span>
+    <select name="m">
+      <option value="Numeric">Numeric</option>
+      <option value="Alphanumeric">Alphanumeric</option>
+      <option value="Byte" selected>Byte</option>
+      <option value="Kanji">Kanji</option>
+    </select>
+    <span>Multibyte:</span>
+    <select name="mb">
+      <option value="default">None</option>
+      <option value="SJIS">SJIS</option>
+      <option value="UTF-8" selected>UTF-8</option>
+    </select>
+    </div>
+    <br/>
+     <div class="form-group">
+    <input type="email" name="msg" class="form-control form-control-user" aria-describedby="emailHelp" placeholder="Ingrese su usario">
+    </div>   
+    <br/>
+    <input type="button" value="Generar codigo qr"  class="btn btn-primary btn-user btn-block" onclick="update_qrcode()"/>
+    <div id="qr"> 
+    </div>
+           <a href="/" class="btn btn-secundary btn-user btn-block">
+                      Salir
+                    </a> 
+  </form>
+ </div>
+ </div>
+ </div>
+ </div>
+</div>
+</div>
+</div>
+</div>
+
+  </div>
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+</body>
+
+
