@@ -6,12 +6,13 @@ const {isAuthenticated} = require('../helpers/auth');
 
 
 router.get('/users/signin', (req, res) => {
-
+      
+  
      res.render('users/signin');
 })
 
 router.get('/users/getusers', isAuthenticated,async(req, res)=>{
-    const usuarios = await Users.find();
+    const usuarios = await Users.find({Rol:"usuario"});
     console.log(usuarios);
 
     res.render('users/getusers',{usuarios});
@@ -20,6 +21,9 @@ router.get('/users/getusers', isAuthenticated,async(req, res)=>{
 
 
 router.post('/users/signin' , passport.authenticate('local',{
+
+  
+   
    successRedirect: '/main/dashboard',
    failureRedirect: '/',
    failureFlash: true 
@@ -57,7 +61,7 @@ router.post('/users/signup', async(req, res)=>{
          req.flash('error_msg', 'el email ya existe');
          res.redirect('/');
      }  
-     const NewUser = new Users({name, email, password});
+     const NewUser = new Users({name, email, password,Rol:"usuario"});
      NewUser.password = await NewUser.encryptPassword(password);
      await NewUser.save();
      req.flash('success_msg', 'Se ha registrado');
