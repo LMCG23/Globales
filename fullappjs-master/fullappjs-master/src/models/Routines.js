@@ -5,7 +5,10 @@ const RoutineSchema = new Schema({
     name: {type: String, required: true},
     time: {type: String, required: true},
     description:{type: String, required: true},
-    user: {type: String }
+    user: {type: String },
+    ejercicios:[{
+        type: Schema.Types.ObjectId, ref: 'Ejercicio'
+    }]
 
 });
 
