@@ -339,12 +339,10 @@
     
 <div class="col-md-4 mx-auto">
     <div class="card">
-    <div class="card-head"><h3>Agregar estudiante</h3></div>
+    <div class="card-head"><h3>Agendar cita</h3></div>
     <div class="card-body">
-        <form action='/students/newstudent' method="POST">
-            <div class="form-group">
-                <input type="text" name='dni' class="form-control" placeholder="Identificación" autofocus>
-            </div>
+        <form action='/citas/newcitas' method="POST">
+            
             <div class="form-group">
                 <input type="text" name='nombre' class="form-control" placeholder="Nombre">
             </div>
@@ -355,38 +353,15 @@
                 <input type="text" name='apellido2' class="form-control" placeholder="Segundo apellido">
             </div>
             <div class="form-group">
-                <label>Fecha Nacimiento</label>
-                <input type="date" name='fechanacimiento' class="form-control">
+                <label>Fecha de la cita</label>
+                <input type="date" name='fechacita' class="form-control">
             </div>
             <div class="form-group">
-                <input type="number" name='celular' class="form-control" placeholder="Número de teléfono">
+                <label>hora de la cita</label>
+                <input type="time"  min="05:00" max="21:00" name='horacita' class="form-control">
             </div>
             <div class="form-group">
-                <input type="email" name='correo' class="form-control" placeholder="Email">
-            </div>
-            <div class="form-group">
-                <input type="text" name='pais' class="form-control" placeholder="País">
-            </div>
-            <div class="form-group">
-                <input type="text" name='cuidad' class="form-control" placeholder="Cuidad">
-            </div>
-            <div class="form-group">
-                <input type="text"  name='direccion' class="form-control" placeholder="Dirección">
-            </div>
-            <div class="form-group">
-                <input type="number" step=".01" name='estatura' class="form-control" placeholder="Estatura">
-            </div>
-            <div class="form-group">
-                <input type="number" step=".01" name='peso' class="form-control" placeholder="Peso">
-            </div>
-            <div class="form-group">
-                <input type="text" name='ocupacion' class="form-control" placeholder="Ocupación">
-            </div>    
-            <div class="form-group">
-                <textarea name='listapadecimientos' class="form-control" placeholder="Padecimientos"></textarea>
-            </div>
-            <div class="form-group">
-                <textarea name='listamedicamentos' class="form-control" placeholder="Medicamentos"></textarea>
+                <input type="text" name='profesor' class="form-control" placeholder="profesor">
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-block">Guardar</button> 

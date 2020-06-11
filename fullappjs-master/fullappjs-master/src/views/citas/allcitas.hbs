@@ -324,7 +324,7 @@
           </ul>
 
         </nav>
-    <!-- End of Topbar -->
+        <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
@@ -336,67 +336,72 @@
           </div>
 
           <!-- Content Row -->
-    
-<div class="col-md-4 mx-auto">
-    <div class="card">
-    <div class="card-head"><h3>Agregar estudiante</h3></div>
-    <div class="card-body">
-        <form action='/students/newstudent' method="POST">
-            <div class="form-group">
-                <input type="text" name='dni' class="form-control" placeholder="Identificación" autofocus>
-            </div>
-            <div class="form-group">
-                <input type="text" name='nombre' class="form-control" placeholder="Nombre">
-            </div>
-            <div class="form-group">
-                <input type="text" name='apellido' class="form-control" placeholder="Primer apellido">
-            </div>
-            <div class="form-group">
-                <input type="text" name='apellido2' class="form-control" placeholder="Segundo apellido">
-            </div>
-            <div class="form-group">
-                <label>Fecha Nacimiento</label>
-                <input type="date" name='fechanacimiento' class="form-control">
-            </div>
-            <div class="form-group">
-                <input type="number" name='celular' class="form-control" placeholder="Número de teléfono">
-            </div>
-            <div class="form-group">
-                <input type="email" name='correo' class="form-control" placeholder="Email">
-            </div>
-            <div class="form-group">
-                <input type="text" name='pais' class="form-control" placeholder="País">
-            </div>
-            <div class="form-group">
-                <input type="text" name='cuidad' class="form-control" placeholder="Cuidad">
-            </div>
-            <div class="form-group">
-                <input type="text"  name='direccion' class="form-control" placeholder="Dirección">
-            </div>
-            <div class="form-group">
-                <input type="number" step=".01" name='estatura' class="form-control" placeholder="Estatura">
-            </div>
-            <div class="form-group">
-                <input type="number" step=".01" name='peso' class="form-control" placeholder="Peso">
-            </div>
-            <div class="form-group">
-                <input type="text" name='ocupacion' class="form-control" placeholder="Ocupación">
-            </div>    
-            <div class="form-group">
-                <textarea name='listapadecimientos' class="form-control" placeholder="Padecimientos"></textarea>
-            </div>
-            <div class="form-group">
-                <textarea name='listamedicamentos' class="form-control" placeholder="Medicamentos"></textarea>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block">Guardar</button> 
-            </div>
-        </form>
-    </div>
+          {{#if listcitas}}
+<div class="container">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Segundo Apellido</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Profesor</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+        </thead>
+        </tr>
+         {{#each listcitas}}
+        <tr>
+           
+            <td>
+                <h4>{{nombre}}</h4>
+            </td>
+            <td>
+                <h4>{{apellido}}</h4>
+            </td>
+            <td>
+               <h4>{{apellido2}}</h4>
+            </td>
+            <td>
+               <h4>{{fecha}}</h4>
+            </td>
+            <td>
+               <h4>{{hora}}</h4>
+            </td>
+            <td>
+               <h4>{{profesor}}</h4>
+            </td>
+
+            <td>
+             <h4>Editar</h4><a href="/citas/edit/{{id}}"> <i class="fas fa-edit"></i></a>
+            </td>
+            <td>
+                <form action="/citas/delete/{{_id}}?_method=Delete" method="POST">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" class="btn btn-danger btn-block btn-sm">Borrar</button>
+                </form>
+            </td>
+            {{/each}}
+
+        </tr>
+
+    </table>
 </div>
+{{else}}
+
+<div class="card mx-auto"></div>
+<div class="card-body">
+    <h1>Hola {{user.name}}</h1>
+    <p style="color: white" class="lead"> Sin estudiantes aún</p>
+    <a href='/citas/add' class="btn btn-primary btn-block btn-sm"> Crear</a>
 </div>
 
-       
+</div>
+
+<a href='/citas/add'><i class="fas fa-plus"></i></a>
+{{/if}}
+         
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">

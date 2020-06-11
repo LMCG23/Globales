@@ -324,7 +324,7 @@
           </ul>
 
         </nav>
-    <!-- End of Topbar -->
+        <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
@@ -335,65 +335,66 @@
             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
           </div>
 
-          <!-- Content Row -->
-    
-<div class="col-md-4 mx-auto">
+
+<div class="col-md-4">
     <div class="card">
-    <div class="card-head"><h3>Agregar estudiante</h3></div>
-    <div class="card-body">
-        <form action='/students/newstudent' method="POST">
+        <div class="card-header"><h3>Editar Estudiante</h3></div>
+            <div class="card-body">
+                <form action="/students/editstudent/{{student._id}}?_method=PUT" method="POST">
+                    <input type="hidden" name="_method" value="PUT">
             <div class="form-group">
-                <input type="text" name='dni' class="form-control" placeholder="Identificación" autofocus>
+                <input type="text" value="{{student.dni}}" name='dni' class="form-control" placeholder="Identificación" autofocus>
             </div>
             <div class="form-group">
-                <input type="text" name='nombre' class="form-control" placeholder="Nombre">
+                <input type="text" value="{{student.nombre}}" name='nombre' class="form-control" placeholder="Nombre">
             </div>
             <div class="form-group">
-                <input type="text" name='apellido' class="form-control" placeholder="Primer apellido">
+                <input type="text" value="{{student.apellido}}" name='apellido' class="form-control" placeholder="Primer apellido">
             </div>
             <div class="form-group">
-                <input type="text" name='apellido2' class="form-control" placeholder="Segundo apellido">
+                <input type="text" value="{{student.apellido2}}" name='apellido2' class="form-control" placeholder="Segundo apellido">
             </div>
             <div class="form-group">
                 <label>Fecha Nacimiento</label>
-                <input type="date" name='fechanacimiento' class="form-control">
+                <input type="date" value="{{student.fechanacimiento}}"name='fechanacimiento' class="form-control">
             </div>
             <div class="form-group">
-                <input type="number" name='celular' class="form-control" placeholder="Número de teléfono">
+                <input type="number"value="{{student.celular}}" name='celular' class="form-control" placeholder="Número de teléfono">
             </div>
             <div class="form-group">
-                <input type="email" name='correo' class="form-control" placeholder="Email">
+                <input type="email" value="{{student.correo}}" name='correo' class="form-control" placeholder="Email">
             </div>
             <div class="form-group">
-                <input type="text" name='pais' class="form-control" placeholder="País">
+                <input type="text" value="{{student.pais}}" name='pais' class="form-control" placeholder="País">
             </div>
             <div class="form-group">
-                <input type="text" name='cuidad' class="form-control" placeholder="Cuidad">
+                <input type="text" value="{{student.cuidad}}" name='cuidad' class="form-control" placeholder="Cuidad">
             </div>
             <div class="form-group">
-                <input type="text"  name='direccion' class="form-control" placeholder="Dirección">
+                <input type="text" value="{{student.direccion}}"  name='direccion' class="form-control" placeholder="Dirección">
             </div>
             <div class="form-group">
-                <input type="number" step=".01" name='estatura' class="form-control" placeholder="Estatura">
+                <input type="text" value="{{student.estatura}}" step=".01" name='estatura' class="form-control" placeholder="Estatura">
             </div>
             <div class="form-group">
-                <input type="number" step=".01" name='peso' class="form-control" placeholder="Peso">
+                <input type="number" value="{{student.peso}}" step=".01" name='peso' class="form-control" placeholder="Peso">
             </div>
             <div class="form-group">
-                <input type="text" name='ocupacion' class="form-control" placeholder="Ocupación">
+                <input type="text" value="{{student.ocupacion}}" name='ocupacion' class="form-control" placeholder="Ocupación">
             </div>    
             <div class="form-group">
-                <textarea name='listapadecimientos' class="form-control" placeholder="Padecimientos"></textarea>
+                <textarea name='listapadecimientos' value="{{student.listapadecimientos}}" class="form-control" placeholder="Padecimientos"></textarea>
             </div>
             <div class="form-group">
-                <textarea name='listamedicamentos' class="form-control" placeholder="Medicamentos"></textarea>
+                <textarea name='listamedicamentos' value="{{student.listamedicamentos}}" class="form-control" placeholder="Medicamentos"></textarea>
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-block">Guardar</button> 
             </div>
-        </form>
+                </form>
+            </div>
     </div>
-</div>
+    </div>
 </div>
 
        
