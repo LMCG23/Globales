@@ -12,6 +12,7 @@ router.get('/about', (req, res) => {
 
 router.get('/main/dashboard', (req, res) => {
   var flag = true;
+  //console.log(req.user.DatosGraficos[0].peso);
   if(req.user.Rol=="usuario"){
     console.log(req.user.Rol);
     flag = false;

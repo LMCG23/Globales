@@ -18,6 +18,19 @@ router.get('/Routines/listarRutinas/', isAuthenticated,async(req, res)=>{
      arrayRutinas = user.rutina;
     
      res.render('Routines/AllRoutines',{arrayRutinas});
+    
+});
+router.get( '/routines/listarMedidas/', isAuthenticated,async(req, res)=>{
+        var graficos;
+    if(req.user.DatosGraficos!=null){
+        graficos = req.user.DatosGraficos;
+
+    }
+    console.log(graficos);
+    
+   
+    res.render('Routines/AllMedidas',{graficos});
+  
 });
 
 
@@ -69,7 +82,7 @@ router.post('/Routines/CreateRoutinas', isAuthenticated,async(req, res)=>{
 });
 
  router.post('/Routines/insertarMedidas', isAuthenticated,async(req, res)=>{
-  /*     let id = req.body.id;
+       let id = req.body.id;
       var datos = {mes:req.body.mes,peso:req.body.peso,PorcentajeGrasa:req.body.porcentajeGrasa,indiceDeMasa:req.body.porcentajeCorporal};
       usuario = await Users.findById(req.body.id);
         var DatosGraficos = usuario.DatosGraficos;
@@ -90,10 +103,11 @@ router.post('/Routines/CreateRoutinas', isAuthenticated,async(req, res)=>{
       
       usuario.DatosGraficos.push(datos);
       await usuario.save();
-      const usuarios = await Users.find();*/
+      const usuarios = await Users.find({Rol:"usuario"});
   
-      res.render('users/getusers');
-      //  }
+      res.render('users/getusers',{usuarios});
+        }
+      
 
  });
  
