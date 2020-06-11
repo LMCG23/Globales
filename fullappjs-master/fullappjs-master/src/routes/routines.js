@@ -18,6 +18,19 @@ router.get('/Routines/listarRutinas/', isAuthenticated,async(req, res)=>{
      arrayRutinas = user.rutina;
     
      res.render('Routines/AllRoutines',{arrayRutinas});
+    
+});
+router.get( '/routines/listarMedidas/', isAuthenticated,async(req, res)=>{
+        var graficos;
+    if(req.user.DatosGraficos!=null){
+        graficos = req.user.DatosGraficos;
+
+    }
+    console.log(graficos);
+    
+   
+    res.render('Routines/AllMedidas',{graficos});
+  
 });
 
 

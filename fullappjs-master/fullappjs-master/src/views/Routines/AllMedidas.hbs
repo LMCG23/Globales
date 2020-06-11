@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Do it sport</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top" onload="cambiarImagenJS()">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/main/dashboard">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-laugh-wink"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">Do it sport </div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="/main/dashboard">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Interface
+      </div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-cog"></i>
+          <span>Rutinas</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">mis rutinas:</h6>
+            <a class="collapse-item" href="/main/dashboard">Rutina</a>
+            <a class="collapse-item" href="/main/dashboard">Mis rutina</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+          <i class="fas fa-fw fa-wrench"></i>
+          <span>Deportes</span>
+        </a>
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Mis deportes:</h6>
+            <a class="collapse-item" href="/">karate</a>
+            <a class="collapse-item" href="/">boxeo</a>        
+          </div>
+        </div>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Addons
+      </div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Contactos</span>
+        </a>
+        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Login Screens:</h6>
+            <a class="collapse-item" href="/">ejemplo</a>            <
+            <div class="collapse-divider"></div>
+            <h6 class="collapse-header">Other Pages:</h6>
+            <a class="collapse-item" href="/">Blank Page</a>
+          </div>
+        </div>
+      </li>
+
+      <!-- Nav Item - Charts -->
+      <li class="nav-item">
+        <a class="nav-link" href="charts.html">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>mision</span></a>
+      </li>
+
+      <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link" href="tables.html">
+          <i class="fas fa-fw fa-table"></i>
+          <span>vision</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <!-- Topbar Search -->
+          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            <div class="input-group">
+              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                  <i class="fas fa-search fa-sm"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+
+            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+            <li class="nav-item dropdown no-arrow d-sm-none">
+              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-search fa-fw"></i>
+              </a>
+              <!-- Dropdown - Messages -->
+              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                <form class="form-inline mr-auto w-100 navbar-search">
+                  <div class="input-group">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" type="button">
+                        <i class="fas fa-search fa-sm"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </li>
+
+            <!-- Nav Item - Alerts -->
+            <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-bell fa-fw"></i>
+                <!-- Counter - Alerts -->
+                <span class="badge badge-danger badge-counter">3+</span>
+              </a>
+              <!-- Dropdown - Alerts -->
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+                <h6 class="dropdown-header">
+                  Alerts Center
+                </h6>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-primary">
+                      <i class="fas fa-file-alt text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 12, 2019</div>
+                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-success">
+                      <i class="fas fa-donate text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 7, 2019</div>
+                    $290.29 has been deposited into your account!
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-warning">
+                      <i class="fas fa-exclamation-triangle text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 2, 2019</div>
+                    Spending Alert: We've noticed unusually high spending for your account.
+                  </div>
+                </a>
+                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+              </div>
+            </li>
+
+            <!-- Nav Item - Messages -->
+            <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-envelope fa-fw"></i>
+                <!-- Counter - Messages -->
+                <span class="badge badge-danger badge-counter">7</span>
+              </a>
+              <!-- Dropdown - Messages -->
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
+                <h6 class="dropdown-header">
+                  Message Center
+                </h6>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
+                    <div class="status-indicator bg-success"></div>
+                  </div>
+                  <div class="font-weight-bold">
+                    <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
+                    <div class="small text-gray-500">Emily Fowler · 58m</div>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
+                    <div class="status-indicator"></div>
+                  </div>
+                  <div>
+                    <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
+                    <div class="small text-gray-500">Jae Chun · 1d</div>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
+                    <div class="status-indicator bg-warning"></div>
+                  </div>
+                  <div>
+                    <div class="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
+                    <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
+                    <div class="status-indicator bg-success"></div>
+                  </div>
+                  <div>
+                    <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
+                    <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                  </div>
+                </a>
+                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+              </div>
+            </li>
+
+            <div class="topbar-divider d-none d-sm-block"></div>
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ user.name }}</span>
+                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+              </a>
+              <!-- Dropdown - User Information -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Profile
+                </a>
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Settings
+                </a>
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Activity Log
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+
+          </ul>
+
+        </nav>
+        <!-- End of Topbar -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid"></div>
+<div class="row">
+       {{#each graficos}}
+  <div class="col-sm-4">
+   
+   <div class="card" style="width: 18rem;">
+  <img id ={{mes}} class="card-img-top" width="200" height="150"  alt="Card image cap">
+  <div class="card-body bg-dark text-white">
+    <h5 class="card-title bg-dark text-white">Mes: {{mes}}</h5>
+    <p class="card-text">Peso: {{peso}}.</p>
+     <p class="card-text">Porcentaje de Grasa: {{PorcentajeGrasa}}.</p>
+      <p class="card-text">Indice de masa: {{indiceDeMasa}}.</p>
+    
+    <a href="/main/dashboard" class="btn btn-primary bg-primary">Volver</a>
+  </div>
+</div>
+
+  </div>
+    {{/each}}
+  <!--<div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>-->
+</div>
+
+  <!--{{#each graficos}}
+  <div class="row">
+  <div class="col-sm-6">
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="http://contenidosdigitales.ulp.edu.ar/exe/articulacion_mat/centimetro.jpg" alt="Card image cap">
+  <div class="card-body bg-primary text-white">
+    <h5 class="card-title bg-primary text-white">Mes: {{mes}}</h5>
+    <p class="card-text">Peso: {{peso}}.</p>
+     <p class="card-text">Porcentaje de Grasa: {{PorcentajeGrasa}}.</p>
+      <p class="card-text">Indice de masa: {{indiceDeMasa}}.</p>
+    
+    <a href="/main/dashboard" class="btn btn-primary bg-dark">Volver</a>
+  </div>
+</div>
+  </div>
+  </div>
+
+  {{else}}
+
+  <div class="card mx-auto"></div>
+  <div class="card-body">
+    <h1>Hola {{name}}</h1>
+    <p style="color: white" class="lead"> Sin notas aún</p>
+    <a href='/notes/add' class="btn btn-primary btn-block btn-sm"> Crear</a>
+  </div>
+  {{/each}}
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         {{!-- aqui va el formulario --}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2019</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="/users/logout">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="vendor/chart.js/Chart.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="js/demo/chart-area-demo.js"></script>
+  <script src="js/demo/chart-pie-demo.js"></script>
+
+  <style></style>
+<script>
+    function cambiarImagenJS(){
+
+
+        if(document.getElementById("Enero")!=null){
+    document.getElementById("Enero").src="https://saviaresidencias.es/wp-content/uploads/2019/12/calendario-enero-2019-silocreativo.png";
+ }
+     if(document.getElementById("Febrero")!=null){
+    document.getElementById("Febrero").src="https://vozdelcora.files.wordpress.com/2019/02/febrero.png";
+ }
+   if(document.getElementById("Marzo")!=null){
+    document.getElementById("Marzo").src="https://i0.wp.com/www.silocreativo.com/wp-content/uploads/2020/02/silocreativo-marzo-2020-gratis.png?fit=666%2C370&quality=100&strip=all&ssl=1";
+ }
+  if(document.getElementById("Abril")!=null){
+    document.getElementById("Abril").src="https://i2.wp.com/www.silocreativo.com/wp-content/uploads/2019/03/calendario-diseno-silocreativo-2020-abril.png?fit=666%2C370&quality=100&strip=all&ssl=1";
+ }
+  if(document.getElementById("Mayo")!=null){
+    document.getElementById("Mayo").src="https://i0.wp.com/www.silocreativo.com/wp-content/uploads/2020/04/calendario-silocreativo-mayo-2020-design.png?fit=666%2C370&quality=100&strip=all&ssl=1";
+ }
+     if(document.getElementById("Junio")!=null){
+  document.getElementById("Junio").src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSkfZXrsd-fQcyj2qxmu1Lu3iMO_uUnAV9ff5K-Dbrw3kH9I34S&usqp=CAU";
+ }
+       if(document.getElementById("Julio")!=null){
+  document.getElementById("Julio").src="https://i0.wp.com/www.silocreativo.com/wp-content/uploads/2019/06/calendario-silocreativo-diseno-julio-2019.png?fit=666%2C370&quality=100&strip=all&ssl=1";
+ }
+ if(document.getElementById("Octubre")!=null){
+  document.getElementById("Octubre").src="data:image/jpeg;base64,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"
+
+ }
+ if(document.getElementById("Noviembre")){
+       document.getElementById("Noviembre").src="https://lojueguito.es/wp-content/uploads/2019/11/november-010-copy-1280x640-970x570.jpg"
+
+ }
+  if(document.getElementById("Noviembre")){
+       document.getElementById("Noviembre").src="https://lojueguito.es/wp-content/uploads/2019/11/november-010-copy-1280x640-970x570.jpg"
+
+ }
+  if(document.getElementById("Noviembre")){
+       document.getElementById("Noviembre").src="https://lojueguito.es/wp-content/uploads/2019/11/november-010-copy-1280x640-970x570.jpg"
+
+ }
+  if(document.getElementById("Noviembre")){
+       document.getElementById("Noviembre").src="https://lojueguito.es/wp-content/uploads/2019/11/november-010-copy-1280x640-970x570.jpg"
+
+ }
+  if(document.getElementById("Noviembre")){
+       document.getElementById("Noviembre").src="https://lojueguito.es/wp-content/uploads/2019/11/november-010-copy-1280x640-970x570.jpg"
+
+ }
+  if(document.getElementById("Noviembre")){
+       document.getElementById("Noviembre").src="https://lojueguito.es/wp-content/uploads/2019/11/november-010-copy-1280x640-970x570.jpg"
+
+ }
+ if(document.getElementById("Noviembre")){
+       document.getElementById("Noviembre").src="https://lojueguito.es/wp-content/uploads/2019/11/november-010-copy-1280x640-970x570.jpg"
+
+
+
+}
+
+    }
+
+</script>
+</body>
+
+</html>
