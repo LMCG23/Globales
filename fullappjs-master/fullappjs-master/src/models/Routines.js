@@ -5,7 +5,7 @@ const RoutineSchema = new Schema({
     name: {type: String, required: true},
     time: {type: String, required: true},
     description:{type: String, required: true},
-    user: {type: String },
+    user: { type: Schema.Types.ObjectId, ref: 'User'},
     ejercicios:[{
         
     }]

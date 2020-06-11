@@ -7,9 +7,18 @@ const UserSchema = new Schema({
     email: {type: String, required: true},
     password: {type: String, required: true},
     date: {type: Date, default: Date.now},
+	Rol: {type: String},
     rutina:[{
+		 type: Schema.Types.ObjectId, ref: 'Routine'
        
-    }]
+    }],
+	DatosGraficos:[{
+		mes: {type: String, unique: true,dropDups: true },
+		peso: {type: String},
+		PorcentajeGrasa: {type: String},
+		indiceDeMasa: {type: String}
+	}]
+	
 
 	
 
