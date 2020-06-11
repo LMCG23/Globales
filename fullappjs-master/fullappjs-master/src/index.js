@@ -27,7 +27,13 @@ app.set('view engine', '.hbs');
 
 
 //middlewares configuration somethings specials of servers
-app.use(express.urlencoded({extended: false}));
+// app.use(express.urlencoded({extended: false}));
+app.use(express.json({limit: '10mb', extended: true}));
+app.use(express.urlencoded({
+  limit: '10mb',
+  extended: true
+}));
+
 app.use(methodOverride('_method'));
 app.use(sessions({
     secret: 'mysecretapp',
@@ -83,7 +89,26 @@ app.get("/loader.js", function(req, res){
     res.sendFile(path.join(__dirname,"loader.js"));
   });
 
+app.get("/js/demo/chart-area-demo.js", function(req, res){
+    //send the correct headers
+    res.header("Content-Type", "text/javascript");
+    
+    res.sendFile(path.join(__dirname,"chart-area-demo.js"));
+  });  
 
+  app.get("/vendor/chart.js/Chart.min.js", function(req, res){
+    //send the correct headers
+    res.header("Content-Type", "text/javascript");
+    
+    res.sendFile(path.join(__dirname,"Chart.min.js"));
+  }); 
+  
+  app.get("/js/demo/qrcode.js", function(req, res){
+    //send the correct headers
+    res.header("Content-Type", "text/javascript");
+    
+    res.sendFile(path.join(__dirname,"qrcode.js"));
+  });  
 
 //Server listenig
 app.listen(app.get('port'), () =>{

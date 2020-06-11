@@ -3,6 +3,7 @@ const router = express.Router();
 
 const Routine = require('../models/Routines');
 const Users = require('../models/Users');
+const Ejercicio = require('../models/Excercice');
 const {isAuthenticated} = require('../helpers/auth');
 
 
@@ -65,13 +66,16 @@ router.post('/Routines/CreateRoutinas', isAuthenticated,async(req, res)=>{
         const newRoutine = new Routine({name,time,description});
         newRoutine.user = req.user.id;
       
-        await newRoutine.save();
-        usuario.rutina.push(newRoutine);
-       await usuario.save();
+
+       await newRoutine.save();
+       console.log('aqui ya se salvo la rutina'+newRoutine);
+       usuario.rutina.push(newRoutine);
+       console.log(newRoutine);
        const ejercicios = await Ejercicio.find();
+       await usuario.save(); 
+       rutina=newRoutine._id;
        req.flash("success_msg", 'Rutina agregada');
-       res.render('Excercice/AllExcercices', {ejercicios}); 
-      
+       res.render('Excercice/AllExcercices',{ejercicios,rutina});  
 
     }
  });

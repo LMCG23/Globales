@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
+
 router.get('/', (req, res) => {
   res.render('index');
 });
@@ -19,7 +20,6 @@ router.get('/main/dashboard', (req, res) => {
   console.log(req.user.Rol);
    res.render('main/dashboard',{flag});
    });
-   
-  
+     
 
 module.exports = router;

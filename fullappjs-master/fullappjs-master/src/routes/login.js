@@ -8,7 +8,9 @@ router.get('/login/register', (req, res) => {
 router.get('/login/forgot_password', (req, res) => {
     res.render('login/forgot_password');
   });  
-
+router.get('/login/code_qr', (req, res) => {
+  res.render('login/code_qr');
+  }); 
 router.get('/partials/login', (req, res) => {
    res.render('partials/login');
  }); 
