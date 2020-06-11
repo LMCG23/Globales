@@ -9,7 +9,7 @@ const UserSchema = new Schema({
     date: {type: Date, default: Date.now},
 	Rol: {type: String},
     rutina:[{
-		 type: Schema.Types.ObjectId, ref: 'Routine'
+		 
        
     }],
 	DatosGraficos:[{
