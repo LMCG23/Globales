@@ -30,15 +30,13 @@ router.get( '/routines/listarMedidas/', isAuthenticated,async(req, res)=>{
     console.log(graficos);
     
    
-    res.render('Routines/AllMedidas',{graficos});
+    res.render('Routines/AllMedidas',{encoded: encodeURIComponent(JSON.stringify(graficos)),graficos});
   
 });
 
-
-
 router.post('/Routines/CreateRoutinas', isAuthenticated,async(req, res)=>{
     console.log(req.body.id);
-    usuario = await Users.findById(req.body.id);
+    Usuarios = await Users.findById(req.body.id);
     const {name, time,description} =  req.body;
     const errors = [];
  
@@ -65,14 +63,16 @@ router.post('/Routines/CreateRoutinas', isAuthenticated,async(req, res)=>{
     else{
         const newRoutine = new Routine({name,time,description});
         newRoutine.user = req.body.id;
-      
+     
 
        await newRoutine.save();
        console.log('aqui ya se salvo la rutina'+newRoutine);
-       usuario.rutina.push(newRoutine);
+       Usuarios.rutina.push(newRoutine); 
+       const usuario=req.user.id;
        console.log(newRoutine);
-       const ejercicios = await Ejercicio.find();
-       await usuario.save(); 
+       const ejercicios = await Ejercicio.find({usuario:usuario});
+       console.log("lista de ejercicios "+ ejercicios);
+       await Usuarios.save(); 
        rutina=newRoutine._id;
        req.flash("success_msg", 'Rutina agregada');
        res.render('Excercice/AllExcercices',{ejercicios,rutina});  
@@ -91,7 +91,7 @@ router.get('/Routines/iniciarRutina/:id', isAuthenticated,async(req, res)=>{
     let id = req.params.id;
     var Rutina =  await Routine.findById(id);
    const Ejercicios = Rutina.ejercicios;
-   console.log(Rutina);
+  // console.log(Rutina);
     res.render('Excercice/IniciarRutina',{encodedJson: encodeURIComponent(JSON.stringify(Ejercicios)),Ejercicios});
 });
 
