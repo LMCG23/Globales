@@ -21,6 +21,14 @@ router.get('/Routines/listarRutinas/', isAuthenticated,async(req, res)=>{
      res.render('Routines/AllRoutines',{arrayRutinas});
     
 });
+
+router.get('/Routines/AllRoutinesByAdmin/:id', isAuthenticated,async(req, res)=>{
+    user = await Users.findById(req.params.id); 
+    arrayRutinas = user.rutina;
+    res.render('Routines/AllRoutinesByAdmin',{arrayRutinas});
+});
+
+
 router.get( '/routines/listarMedidas/', isAuthenticated,async(req, res)=>{
         var graficos;
     if(req.user.DatosGraficos!=null){
