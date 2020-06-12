@@ -20,7 +20,7 @@
 
 </head>
 
-<body id="page-top">
+<body id="page-top" onload="oninit()">
 
   <!-- Page Wrapper -->
   <div id="wrapper">
@@ -358,12 +358,22 @@
 
 
 
+  <input type="text" name='rutina' id='rutina' class="form-control" style="display: none;" value={{rutina}}>
 
 
 
-
-
-
+<script>
+    function oninit() {
+     
+      if ("rutina" in localStorage) {
+        localStorage.removeItem("rutina");
+        localStorage.setItem("rutina", document.getElementById("rutina").value);
+      } else {
+        localStorage.setItem("rutina", document.getElementById("rutina").value);
+      }
+ console.log("este es el valor del id de la rutina "+localStorage.getItem("rutina"));
+    }
+</script>
 
 
 
@@ -373,7 +383,7 @@
 
 <div class="row">
   {{#each ejercicios}}
-  <div class="col-md-3">
+  <div class="col-md-6">
     <div class="card">
       <img class="card-img-top" src="{{foto}}" alt="Card image cap">
       
@@ -381,15 +391,10 @@
         <h5 class="card-title">{{nombre}}</h5>
         <p class="card-text">
           <br>
-          repeticiones ={{repeticiones}}
-          <br>
-          series ={{series}}<br>
-
-          Grupo musculo ={{Gmusculo}} <br>
-          peso ={{peso}}
-
+          Grupo Muscular ={{Gmusculo}} <br>
+      
           .</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <a href="/Excercice/CreateStudentExcercice/{{id}}" class="btn btn-primary">Agregar a Estudiante</a>
       </div>
     </div>
   </div>
@@ -400,7 +405,7 @@
   <div class="card mx-auto"></div>
   <div class="card-body">
     <h1>Hola {{nombre}}</h1>
-    <p style="color: white" class="lead"> Sin notas aún</p>
+    <p style="color: white" class="lead"> Sin Ejercicios</p>
     <a href='/notes/add' class="btn btn-primary btn-block btn-sm"> Crear</a>
   </div>
   {{/each}}

@@ -7,7 +7,7 @@ const EjercicioSchema = new Schema({
    	series: {type: String},
     Gmusculo: {type: String },
        peso: {type: String },
-       foto: {type: String }
+       foto: {type: String },
        
 
 });

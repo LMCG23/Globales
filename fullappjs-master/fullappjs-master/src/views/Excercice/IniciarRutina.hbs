@@ -100,7 +100,7 @@
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Login Screens:</h6>
-            <a class="collapse-item" href="/">ejemplo</a>            
+            <a class="collapse-item" href="/">ejemplo</a>            <
             <div class="collapse-divider"></div>
             <h6 class="collapse-header">Other Pages:</h6>
             <a class="collapse-item" href="/">Blank Page</a>
@@ -358,12 +358,22 @@
 
 
 
+  <input type="text" name='rutina' id='rutina' class="form-control" style="display: none;" value={{rutina}}>
 
 
 
-
-
-
+<script>
+    function oninit() {
+     
+      if ("rutina" in localStorage) {
+        localStorage.removeItem("rutina");
+        localStorage.setItem("rutina", document.getElementById("rutina").value);
+      } else {
+        localStorage.setItem("rutina", document.getElementById("rutina").value);
+      }
+ console.log("este es el valor del id de la rutina "+localStorage.getItem("rutina"));
+    }
+</script>
 
 
 
@@ -371,39 +381,40 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-
-
-
-            <div class="col-md-10 mx-auto">
+<div class="row">
+  {{#each Ejercicios}}
+  <div class="col-md-6" id={{nombre}}>
     <div class="card">
-        <div class="card-head">
-            <h3 class="text-center">Crear una Rutina</h3>
-        </div>
-        <div class="card-body">
-            <form action='/Routines/CreateRoutinas' method="POST">
-                <div class="form-group">
-                    <input type="text" name='name' class="form-control" placeholder="Nombre" autofocus>
-                </div>
-                  <input type="text" name='id' class="form-control" style="display: none;" value={{id}}>
-                <div class="form-group">
-                    <input type="text" name='time' class="form-control" placeholder="Tiempo en horas" autofocus>
-                </div>
-                <div class="form-group">
-                    <input type="text" name='description' class="form-control" placeholder="Descripcion" autofocus>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block">Guardar</button>
-                </div>
-            </form>
-        </div>
+      <img class="card-img-top" src="{{foto}}" alt="Card image cap">
+      
+      <div class="card-body">
+        <h5 class="card-title">{{nombre}}</h5>
+        <p class="card-text">
+          <br>
+          Grupo Muscular ={{Gmusculo}} <br>
+      
+          .</p>
+        <button  onclick="removeElement('{{nombre}}')" >
+            Ejercicio terminado
+        </button>
+      </div>
     </div>
+  </div>
+
+
+  {{else}}
+
+  <div class="card mx-auto"></div>
+  <div class="card-body">
+    <h1>Hola {{nombre}}</h1>
+    <p style="color: white" class="lead"> Sin Ejercicios</p>
+    <a href='/notes/add' class="btn btn-primary btn-block btn-sm"> Crear</a>
+  </div>
+  {{/each}}
+
+
+
 </div>
-
-
-
-
-     
-
 
 
 
@@ -534,7 +545,14 @@
   <!-- Page level custom scripts -->
   <script src="js/demo/chart-area-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
-
+<script>
+function removeElement(Nombre){
+    console.log(Nombre)
+    var element = document.getElementById(Nombre);
+       element.parentNode.removeChild(element);
+    
+};
+</script>
 </body>
 
 </html>

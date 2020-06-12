@@ -364,6 +364,7 @@
 
 
 
+<script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
 
 
 
@@ -375,45 +376,52 @@
 <div class="col-md-10 mx-auto">
     <div class="card">
         <div class="card-head">
-            <h3>Agregar Ejercicio</h3>
+            <h3>Crear Ejercicio</h3>
         </div>
         <div class="card-body">
-            <form action='/Routines/insertarMedidas' method="POST">
+
+                <input type="text" name='rutina' id="rutina" class="form-control" style="display: none;" value={{rutina}}>
+
                 <div class="form-group">
-                    <input type="text" name='nombre' class="form-control" placeholder="Nombre" autofocus>
+                    <input type="text" id='nombre' class="form-control" placeholder="Nombre" autofocus>
                 </div>
                 <div class="form-group">
-                    <input type="text" name='repeticiones' class="form-control" placeholder="Repeticiones" autofocus>
+                    <input type="text" id='repeticiones' class="form-control" placeholder="Repeticiones" autofocus>
                 </div>
                 <div class="form-group">
-                    <input type="text" name='series' class="form-control" placeholder="Series" autofocus>
+                    <input type="text" id='series' class="form-control" placeholder="Series" autofocus>
                 </div>
                 <div class="form-group">
-                    <input type="text" name='Gmusculo' class="form-control" placeholder="Grupo musculo" autofocus>
+                    <input type="text" id='Gmusculo' class="form-control" placeholder="Grupo musculo" autofocus>
                 </div>
                 <div class="form-group">
-                    <input type="text" name='peso' class="form-control" placeholder="Peso" autofocus>
+                    <input type="text" id='peso' class="form-control" placeholder="Peso" autofocus>
                 </div>
 
                 <div class="form-group">
-                    <input id="img1" type=image src="" width="25" height="15"> 
+                    <img id="img1"  src="" width="25" height="15"> 
+                   
                     {{!-- <img   id="img1"><br /> --}}
-                    <input name='foto' id="inputFile1" type="file">
-                </div>
+                    <input id="inputFile1" type="file">       
+                             </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block">Guardar</button>
+                    <button id="hola"  class="btn btn-primary btn-block">Guardar</button>
                 </div>
-            </form>
+            {{!-- </form> --}}
         </div>
     </div>
 </div>
 
-<script>
-function init() {
+
+
+{{!-- javasrcipt --}}
+
+
+<script >
+       function init() {
   var inputFile = document.getElementById('inputFile1');
   inputFile.addEventListener('change', mostrarImagen, false);
 }
-
 function mostrarImagen(event) {
   var file = event.target.files[0];
   var reader = new FileReader();
@@ -424,13 +432,68 @@ function mostrarImagen(event) {
   }
   reader.readAsDataURL(file);
 }
-
 window.addEventListener('load', init, false);
 
+
+$(document).ready(function(){
+    $("#hola").on('click', function(e){
+        e.preventDefault();
+      
+
+        var formData = new FormData();
+
+      
+        var nombre = $('#nombre').val();
+        var repeticiones = $('#repeticiones').val();
+        var series = $('#series').val();
+        var Gmusculos = $('#Gmusculo').val();
+        var peso = $('#peso').val();
+        var foto = $('#img1').prop('src');
+       // var rutina = $('#rutina').val();   esto ya no 
+        //console.log(rutina);
+
+
+let myHeaders = new Headers();
+
+  const options = {
+    method: 'POST',
+    headers: myHeaders,
+    body: new URLSearchParams({
+      // 'rutina': rutina,
+      'nombre': nombre,
+      'repeticiones': repeticiones,
+      'series': series,
+      'Gmusculo': Gmusculos,
+      'peso': peso,
+      'foto': foto
+
+    }),
+  }
+
+  let myRequest = new Request('http://localhost:3000/Excercice/CreateExcercice', options);
+  fetch(myRequest, {credentials: 'include'})
+    .then((res) => {
+      if(res.ok) {
+        console.log('Ok');
+        return res.json(); // <- parseamos el response y lo devolvemos a nuestra función
+      }
+    })
+    .then((resParsed) => {
+      console.log(resParsed); // <- mostramos los datos recibidos, luego de ser parseados
+       // rutina=resParsed.rutina;
+       window.location.href ="http://localhost:3000/main/dashboard/";
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+    
+    });
 
 </script>
 
 
+{{!-- javasrcipt --}}
 
      
 
