@@ -7,6 +7,7 @@ const {isAuthenticated} = require('../helpers/auth');
 
 
 router.get('/Excercice/CreateExcercice', isAuthenticated,(req, res)=>{
+    
     res.render('Excercice/CreateExcercice');
 });
 

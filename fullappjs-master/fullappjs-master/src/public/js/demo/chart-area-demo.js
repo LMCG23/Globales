@@ -89,6 +89,7 @@ for(var i=0;i<12;i++){
 
   
 var ctx = document.getElementById("myAreaChart");
+if(ctx!=null){
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
@@ -176,3 +177,4 @@ var myLineChart = new Chart(ctx, {
     }
   }
 });
+}
