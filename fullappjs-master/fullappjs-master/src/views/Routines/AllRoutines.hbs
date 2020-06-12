@@ -380,12 +380,20 @@
         <h5 class="card-title">{{name}}</h5>
         <p class="card-text">
           <br>
-          Tiempo: {{arrayRutinas.time}}
+          Tiempo: {{time}}
           <br>
-          Descripcion :{{arrayRutinas.description}}<br>
-
+          Descripcion :{{description}}<br>
+                 
           .</p>
-        <a href="#" class="btn btn-primary">Volver</a>
+    </p>
+          <form action='/Routines/iniciarRutina/{{_id}}'>
+
+          <button alt="Submit" class="primary">
+            Iniciar Rutina
+          </button>
+         
+          </form>
+     
       </div>
     </div>
   </div>
@@ -395,7 +403,7 @@
 
   <div class="card mx-auto"></div>
   <div class="card-body">
-    <h1>Hola {{name}}</h1>
+    <h1>Hola </h1>
     <p style="color: white" class="lead"> Sin notas aún</p>
     <a href='/notes/add' class="btn btn-primary btn-block btn-sm"> Crear</a>
   </div>

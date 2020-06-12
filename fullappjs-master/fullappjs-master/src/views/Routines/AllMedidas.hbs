@@ -387,6 +387,14 @@
 </div>
 
   </div>
+   {{else}}
+
+  <div class="card mx-auto"></div>
+  <div class="card-body">
+    <h1>No tienes medidas </h1>
+    <p style="color: white" class="lead"> Sin notas aún</p>
+    <a href='/main/dashboard' class="btn btn-primary btn-block btn-sm"> Volver al menu</a>
+  </div>
     {{/each}}
   <!--<div class="col-sm-6">
     <div class="card">
@@ -627,7 +635,9 @@
        document.getElementById("Noviembre").src="https://lojueguito.es/wp-content/uploads/2019/11/november-010-copy-1280x640-970x570.jpg"
 
 
-
+ var decodedJson = decodeURIComponent("{{{encodedJson}}}");
+  var jsonObj = JSON.parse(decodedJson);
+  console.log(jsonObj[0].mes);
 }
 
     }
