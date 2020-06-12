@@ -32,17 +32,60 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 }
 var cat = localStorage.getItem('miGato');
   var objetoObtenido = JSON.parse(cat);
-  console.log(objetoObtenido);
+  //console.log(cat[0].peso);
+  //console.log(objetoObtenido[0].PorcentajeGrasa);
 // Area Chart Example
 var l=[];
-
-
-
-
 for(var i=0;i<12;i++){
-if(objetoObtenido[i]==null)
-l[i]=5;
+   if(objetoObtenido[i]==null){
+    objetoObtenido[i]="VACIO"  
+  }
+  }
+for(var i=0;i<12;i++){
+  l[i]=0;  
+  }  
+for(var i=0;i<12;i++){
+
+if(objetoObtenido[i].mes=="Enero"&&objetoObtenido[i]!="VACIO"){     
+  l[0]= parseInt(objetoObtenido[i].PorcentajeGrasa) 
 }
+if(objetoObtenido[i].mes=="Febrero"&&objetoObtenido[i]!="VACIO"){     
+  l[1]= parseInt(objetoObtenido[i].PorcentajeGrasa) 
+}
+if(objetoObtenido[i].mes=="Marzo"&&objetoObtenido[i]!="VACIO"){     
+  l[2]= parseInt(objetoObtenido[i].PorcentajeGrasa) 
+}
+if(objetoObtenido[i].mes=="Abril"&&objetoObtenido[i]!="VACIO"){     
+  l[3]= parseInt(objetoObtenido[i].PorcentajeGrasa) 
+}
+if(objetoObtenido[i].mes=="Mayo"&&objetoObtenido[i]!="VACIO"){     
+  l[4]= parseInt(objetoObtenido[i].PorcentajeGrasa) 
+}
+if(objetoObtenido[i].mes=="Junio"&&objetoObtenido[i]!="VACIO"){     
+  l[5]= parseInt(objetoObtenido[i].PorcentajeGrasa) 
+}
+if(objetoObtenido[i].mes=="Julio"&&objetoObtenido[i]!="VACIO"){     
+  l[6]= parseInt(objetoObtenido[i].PorcentajeGrasa) 
+}
+if(objetoObtenido[i].mes=="Agosto"&&objetoObtenido[i]!="VACIO"){     
+  l[7]= parseInt(objetoObtenido[i].PorcentajeGrasa) 
+}
+if(objetoObtenido[i].mes=="Setiembre"&&objetoObtenido[i]!="VACIO"){     
+  l[8]= parseInt(objetoObtenido[i].peso) 
+}
+if(objetoObtenido[i].mes=="Octubre"&&objetoObtenido[i]!="VACIO"){     
+  l[9]= parseInt(objetoObtenido[i].PorcentajeGrasa) 
+}
+if(objetoObtenido[i].mes=="Noviembre"&&objetoObtenido[i]!="VACIO"){     
+  l[10]= parseInt(objetoObtenido[i].PorcentajeGrasa) 
+}
+if(objetoObtenido[i].mes=="Diciembre"&&objetoObtenido[i]!="VACIO"){     
+  l[11]= parseInt(objetoObtenido[i].PorcentajeGrasa) 
+}
+}
+for(var i=0;i<12;i++){
+  console.log(objetoObtenido[i].mes);
+  }
 
   
 var ctx = document.getElementById("myAreaChart");
@@ -63,7 +106,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(78, 115, 223, 1)",
       pointHitRadius: 10,
       pointBorderWidth: 2,
-      data: [3, 4, 6, -5, l[4], l[5], l[6], l[7], l[8], l[9], l[10], l[11]],
+      data: [l[0], l[1], l[2], l[3], l[4], l[5], l[6], l[7], l[8], l[9], l[10], l[11]],
     }],
   },
   options: {

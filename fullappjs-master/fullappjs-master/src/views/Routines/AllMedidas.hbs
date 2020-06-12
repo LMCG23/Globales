@@ -578,9 +578,9 @@
 
   var decodeJson= decodeURIComponent("{{{encoded}}}");
   var jsonObj= JSON.parse(decodeJson);
-  console.log(JSON.stringify(decodeJson));
+  console.log(JSON.stringify(jsonObj[0].peso));
 
-  localStorage.setItem('miGato', JSON.stringify(decodeJson));
+  localStorage.setItem('miGato', JSON.stringify(jsonObj));
 
         if(document.getElementById("Enero")!=null){
     document.getElementById("Enero").src="https://saviaresidencias.es/wp-content/uploads/2019/12/calendario-enero-2019-silocreativo.png";
