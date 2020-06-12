@@ -20,7 +20,7 @@
 
 </head>
 
-<body id="page-top">
+<body id="page-top" onload="oninit()">
 
   <!-- Page Wrapper -->
   <div id="wrapper">
@@ -358,36 +358,44 @@
 
 
 
+  <input type="text" name='rutina' id='rutina' class="form-control" style="display: none;" value={{rutina}}>
 
 
 
-
-
-
+<script>
+    function oninit() {
+     
+      if ("rutina" in localStorage) {
+        localStorage.removeItem("rutina");
+        localStorage.setItem("rutina", document.getElementById("rutina").value);
+      } else {
+        localStorage.setItem("rutina", document.getElementById("rutina").value);
+      }
+ console.log("este es el valor del id de la rutina "+localStorage.getItem("rutina"));
+    }
+</script>
 
 
 
 
         <!-- Begin Page Content -->
-        <div class="container-fluid ">
+        <div class="container-fluid">
 
-  {{#each arrayRutinas}}
-  <div class="col-md-8">
+<div class="row">
+  {{#each ejercicios}}
+  <div class="col-md-6">
     <div class="card">
-
+      <img class="card-img-top" src="{{foto}}" alt="Card image cap">
       
       <div class="card-body">
-        <h5 class="card-title">{{name}}</h5>
+        <h5 class="card-title">{{nombre}}</h5>
         <p class="card-text">
           <br>
-         Esta rutina se debe realizar en un tiempo promedio de  <strong>{{time}}</strong>
-          <br>
-         {{description}}
-                 
-          .</p>
-    </p>
-           <a href="/Routines/iniciarRutina/{{_id}}" class="btn btn-primary">Iniciar Rutina</a>
-         <a href="/Excercice/AllStudentExcercice/{{_id}}" class="btn btn-primary">Ver Ejercicios</a>
+          Musculos que trabajas <strong>{{Gmusculo}}</strong> <br>
+          con un peso de <strong>{{peso}}</strong> <br>
+          Haciendo <strong>{{repeticiones}}</strong> repeticiones <br>
+          En <strong>{{series}}</strong> series <br>
+          </p>
       </div>
     </div>
   </div>
@@ -397,15 +405,11 @@
 
   <div class="card mx-auto"></div>
   <div class="card-body">
-    <h1>Hola </h1>
-    <p style="color: white" class="lead"> Sin notas aún</p>
+    <h1>Hola {{nombre}}</h1>
+    <p style="color: white" class="lead"> Sin Ejercicios</p>
     <a href='/notes/add' class="btn btn-primary btn-block btn-sm"> Crear</a>
   </div>
   {{/each}}
-
-
-
-</div>
 
 
 

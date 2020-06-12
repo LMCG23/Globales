@@ -21,7 +21,8 @@ router.get('/Excercice/CreateExcercice', isAuthenticated,(req, res)=>{
 router.get('/Excercice/AllExcercices/:rutina', isAuthenticated,async(req, res)=>{
     console.log( req.body); 
     rutina=req.params.rutina;
-    const ejercicios = await Ejercicio.find();
+    usuario=req.user.id;
+    const ejercicios = await Ejercicio.find({usuario});
     console.log('aqui vemos si llegaron ejercicio '+ rutina);
       res.render('Excercice/AllExcercices',{rutina,ejercicios});
        req.flash("success_msg", 'inserte las especificaciones para el estudiante');
@@ -59,7 +60,8 @@ router.post('/Excercice/guardarEjercicioEstudiante', isAuthenticated,async(req, 
 
 
 router.post('/Excercice/CreateExcercice', isAuthenticated,async(req, res)=>{
-    const {nombre, repeticiones,series,Gmusculo,peso,foto} =  req.body;    
+    const {nombre, repeticiones,series,Gmusculo,peso,foto} =  req.body;  
+    usuario=req.user.id;
    const errors = []; 
    if(!nombre){
       
@@ -92,7 +94,7 @@ router.post('/Excercice/CreateExcercice', isAuthenticated,async(req, res)=>{
        });
    }
    else{    
-       const newNote = new Ejercicio({nombre,repeticiones,series,Gmusculo,peso,foto});
+       const newNote = new Ejercicio({nombre,repeticiones,series,Gmusculo,peso,foto,usuario});
        await newNote.save();     
        const ejercicios = await Ejercicio.find();
        respuesta="llego bien";
@@ -100,5 +102,19 @@ router.post('/Excercice/CreateExcercice', isAuthenticated,async(req, res)=>{
        req.flash("success_msg", 'Ejercicio agregado');
    }
 });
+
+
+//aqui vamos a mostrar los ejercicios del usuario 
+router.get('/Excercice/AllStudentExcercice/:id', isAuthenticated,async(req, res)=>{
+    let id = req.params.id;
+    var rut =  await Rutina.findById(id);
+   const ejercicios = rut.ejercicios;
+    res.render('Excercice/AllStudentExcercice',{encodedJson: encodeURIComponent(JSON.stringify(ejercicios)),ejercicios});
+});
+ 
+
+
+
+
  
  module.exports = router;
