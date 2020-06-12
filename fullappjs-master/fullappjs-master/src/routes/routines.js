@@ -64,7 +64,7 @@ router.post('/Routines/CreateRoutinas', isAuthenticated,async(req, res)=>{
     }
     else{
         const newRoutine = new Routine({name,time,description});
-        newRoutine.user = req.user.id;
+        newRoutine.user = req.body.id;
       
 
        await newRoutine.save();
@@ -83,6 +83,16 @@ router.post('/Routines/CreateRoutinas', isAuthenticated,async(req, res)=>{
  router.get('/Routines/insertarMedidas/:id', isAuthenticated,(req, res)=>{
     let id = req.params.id;
     res.render('Routines/insertarMedidas',{id});
+});
+
+
+
+router.get('/Routines/iniciarRutina/:id', isAuthenticated,async(req, res)=>{
+    let id = req.params.id;
+    var Rutina =  await Routine.findById(id);
+   const Ejercicios = Rutina.ejercicios;
+   console.log(Rutina);
+    res.render('Excercice/IniciarRutina',{encodedJson: encodeURIComponent(JSON.stringify(Ejercicios)),Ejercicios});
 });
 
  router.post('/Routines/insertarMedidas', isAuthenticated,async(req, res)=>{

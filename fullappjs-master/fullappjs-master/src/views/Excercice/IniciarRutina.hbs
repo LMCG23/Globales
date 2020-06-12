@@ -20,7 +20,7 @@
 
 </head>
 
-<body id="page-top">
+<body id="page-top" onload="oninit()">
 
   <!-- Page Wrapper -->
   <div id="wrapper">
@@ -358,12 +358,22 @@
 
 
 
+  <input type="text" name='rutina' id='rutina' class="form-control" style="display: none;" value={{rutina}}>
 
 
 
-
-
-
+<script>
+    function oninit() {
+     
+      if ("rutina" in localStorage) {
+        localStorage.removeItem("rutina");
+        localStorage.setItem("rutina", document.getElementById("rutina").value);
+      } else {
+        localStorage.setItem("rutina", document.getElementById("rutina").value);
+      }
+ console.log("este es el valor del id de la rutina "+localStorage.getItem("rutina"));
+    }
+</script>
 
 
 
@@ -371,29 +381,22 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-  {{#each arrayRutinas}}
-  <div class="col-md-3">
+<div class="row">
+  {{#each Ejercicios}}
+  <div class="col-md-6" id={{nombre}}>
     <div class="card">
-
+      <img class="card-img-top" src="{{foto}}" alt="Card image cap">
       
       <div class="card-body">
-        <h5 class="card-title">{{name}}</h5>
+        <h5 class="card-title">{{nombre}}</h5>
         <p class="card-text">
           <br>
-          Tiempo: {{time}}
-          <br>
-          Descripcion :{{description}}<br>
-                 
+          Grupo Muscular ={{Gmusculo}} <br>
+      
           .</p>
-    </p>
-          <form action='/Routines/iniciarRutina/{{_id}}'>
-
-          <button alt="Submit" class="primary">
-            Iniciar Rutina
-          </button>
-         
-          </form>
-     
+        <button  onclick="removeElement('{{nombre}}')" >
+            Ejercicio terminado
+        </button>
       </div>
     </div>
   </div>
@@ -403,15 +406,11 @@
 
   <div class="card mx-auto"></div>
   <div class="card-body">
-    <h1>Hola {{name}}</h1>
-    <p style="color: white" class="lead"> Sin notas aún</p>
+    <h1>Hola {{nombre}}</h1>
+    <p style="color: white" class="lead"> Sin Ejercicios</p>
     <a href='/notes/add' class="btn btn-primary btn-block btn-sm"> Crear</a>
   </div>
   {{/each}}
-
-
-
-</div>
 
 
 
@@ -546,7 +545,14 @@
   <!-- Page level custom scripts -->
   <script src="js/demo/chart-area-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
-
+<script>
+function removeElement(Nombre){
+    console.log(Nombre)
+    var element = document.getElementById(Nombre);
+       element.parentNode.removeChild(element);
+    
+};
+</script>
 </body>
 
 </html>
