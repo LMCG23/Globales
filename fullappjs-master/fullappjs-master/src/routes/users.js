@@ -30,6 +30,8 @@ router.post('/users/signin' , passport.authenticate('local',{
 })); 
 
 router.get('/users/signup', (req, res) => {
+
+    
     res.render('users/signup');
 });
 
@@ -64,8 +66,9 @@ router.post('/users/signup', async(req, res)=>{
      const NewUser = new Users({name, email, password,Rol:"usuario"});
      NewUser.password = await NewUser.encryptPassword(password);
      await NewUser.save();
+     
      req.flash('success_msg', 'Se ha registrado');
-     res.redirect('/main/dashboard');
+     res.redirect('/');
    } 
 });
 
