@@ -30,11 +30,9 @@ router.get( '/routines/listarMedidas/', isAuthenticated,async(req, res)=>{
     console.log(graficos);
     
    
-    res.render('Routines/AllMedidas',{graficos});
+    res.render('Routines/AllMedidas',{encoded: encodeURIComponent(JSON.stringify(graficos)),graficos});
   
 });
-
-
 
 router.post('/Routines/CreateRoutinas', isAuthenticated,async(req, res)=>{
     console.log(req.body.id);
