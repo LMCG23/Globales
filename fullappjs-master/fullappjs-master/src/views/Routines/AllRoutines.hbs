@@ -380,12 +380,20 @@
         <h5 class="card-title">{{name}}</h5>
         <p class="card-text">
           <br>
-          Tiempo: {{arrayRutinas.time}}
+          Tiempo: {{time}}
           <br>
-          Descripcion :{{arrayRutinas.description}}<br>
-
+          Descripcion :{{description}}<br>
+                 
           .</p>
-        <a href="#" class="btn btn-primary">Volver</a>
+    </p>
+          <form action='/Routines/iniciarRutina/{{_id}}'>
+
+          <button alt="Submit" class="primary">
+            Iniciar Rutina
+          </button>
+         
+          </form>
+     
       </div>
     </div>
   </div>
