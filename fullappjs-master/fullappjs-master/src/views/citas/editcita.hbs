@@ -336,62 +336,33 @@
           </div>
 
 
-<div class="col-md-4 mx-auto">
+<div class="col-md-4">
     <div class="card">
         <div class="card-header"><h3>Editar Estudiante</h3></div>
             <div class="card-body">
-                <form action="/students/editstudent/{{student._id}}?_method=PUT" method="POST">
+                <form action="/citas/editcita/{{cita._id}}?_method=PUT" method="POST">
                     <input type="hidden" name="_method" value="PUT">
+           
             <div class="form-group">
-                <input type="text" value="{{student.dni}}" name='dni' class="form-control" placeholder="Identificación" autofocus>
+                <input type="text" value="{{cita.nombre}}" name='nombre' class="form-control" placeholder="Nombre">
             </div>
             <div class="form-group">
-                <input type="text" value="{{student.nombre}}" name='nombre' class="form-control" placeholder="Nombre">
+                <input type="text" value="{{cita.apellido}}" name='apellido' class="form-control" placeholder="Primer apellido">
             </div>
             <div class="form-group">
-                <input type="text" value="{{student.apellido}}" name='apellido' class="form-control" placeholder="Primer apellido">
-            </div>
-            <div class="form-group">
-                <input type="text" value="{{student.apellido2}}" name='apellido2' class="form-control" placeholder="Segundo apellido">
+                <input type="text" value="{{cita.apellido2}}" name='apellido2' class="form-control" placeholder="Segundo apellido">
             </div>
             <div class="form-group">
                 <label>Fecha Nacimiento</label>
-                 <input type="date" value="{{student.fechaN}}" name='fechaN' class="form-control">
+                <input type="date" value="{{cita.fecha}}" name='fecha' class="form-control">
             </div>
             <div class="form-group">
-                <input type="number"value="{{student.celular}}" name='celular' class="form-control" placeholder="Número de teléfono">
+                <input type="text"value="{{cita.hora}}" name='hora' class="form-control" placeholder="Hora">
             </div>
             <div class="form-group">
-                <input type="email" value="{{student.correo}}" name='correo' class="form-control" placeholder="Email">
+                <input type="text" value="{{cita.profesor}}" name='profesor' class="form-control" placeholder="Profesor">
             </div>
-            <div class="form-group">
-                <input type="text" value="{{student.pais}}" name='pais' class="form-control" placeholder="País">
-            </div>
-            <div class="form-group">
-                <input type="text" value="{{student.cuidad}}" name='cuidad' class="form-control" placeholder="Cuidad">
-            </div>
-            <div class="form-group">
-                <input type="text" value="{{student.direccion}}"  name='direccion' class="form-control" placeholder="Dirección">
-            </div>
-            <div class="form-group">
-                <input type="text" value="{{student.estatura}}" step=".01" name='estatura' class="form-control" placeholder="Estatura">
-            </div>
-            <div class="form-group">
-                <input type="number" value="{{student.peso}}" step=".01" name='peso' class="form-control" placeholder="Peso">
-            </div>
-            <div class="form-group">
-                <input type="text" value="{{student.ocupacion}}" name='ocupacion' class="form-control" placeholder="Ocupación">
-            </div>    
-            <div class="form-group">
-                <textarea name='padecimientos' class="form-control">
-                            {{student.padecimientos}}
-                </textarea>
-            </div>
-            <div class="form-group">
-                <textarea name='medicamentos' class="form-control">
-                            {{student.medicamentos}}
-                </textarea>
-            </div>
+            
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-block">Guardar</button> 
             </div>

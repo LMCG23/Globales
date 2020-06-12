@@ -14,7 +14,7 @@ const Students = new Schema({
     nombre:{type: String, required: true},
     apellido:{type: String, required: true},
     apellido2:{type: String, required: false},
-    fechanacimiento:{type: Date, require: false},
+    fechaN:{type: Date, require: true},
     celular:{type: Number, require: false},
     correo:{type: String, require: false},
     pais:{type: String, require: true},
@@ -23,8 +23,8 @@ const Students = new Schema({
     estatura:{type: Number, require: false},
     peso:{type: Number, require: false},
     ocupacion:{type: String, requiere: false},    
-    listapadecimientos:{ type: String, required: false},
-    listamedicamentos:{type: String, required: false},
+    padecimientos:{ type: String, required: false},
+    medicamentos:{type: String, required: false},
     user:{type:String}
 
 });

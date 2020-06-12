@@ -21,9 +21,7 @@ router.get('/users/getusers', isAuthenticated,async(req, res)=>{
 
 
 router.post('/users/signin' , passport.authenticate('local',{
-
-  
-   
+ 
    successRedirect: '/main/dashboard',
    failureRedirect: '/',
    failureFlash: true 
@@ -61,7 +59,7 @@ router.post('/users/signup', async(req, res)=>{
          req.flash('error_msg', 'el email ya existe');
          res.redirect('/');
      }  
-     const NewUser = new Users({name, email, password,Rol:"usuario"});
+     const NewUser = new Users({name, email, password,Rol:"admin"});
      NewUser.password = await NewUser.encryptPassword(password);
      await NewUser.save();
      req.flash('success_msg', 'Se ha registrado');
