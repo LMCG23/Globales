@@ -29,6 +29,23 @@ router.get('/Excercice/AllExcercices/:rutina', isAuthenticated,async(req, res)=>
        req.flash("success_msg", 'inserte las especificaciones para el estudiante');
 });
 
+router.get('/Excercice/AllExcercicesAdd/:id', isAuthenticated,async(req, res)=>{
+    console.log( req.body); 
+    rutina=req.params.id;
+    usuario=req.user.id;
+    const ejercicios = await Ejercicio.find({usuario});
+    console.log('aqui vemos si llegaron ejercicio '+ rutina);
+      res.render('Excercice/AllExcercices',{rutina,ejercicios});
+       req.flash("success_msg", 'inserte las especificaciones para el estudiante');
+});
+
+
+
+
+
+
+
+
 router.post('/Excercice/guardarEjercicioEstudiante', isAuthenticated,async(req, res)=>{
     const {rutina, ejercicio,repeticiones,series,peso} =  req.body;   
     console.log(req.body);
