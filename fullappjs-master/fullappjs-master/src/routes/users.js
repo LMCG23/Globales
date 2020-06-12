@@ -61,7 +61,7 @@ router.post('/users/signup', async(req, res)=>{
          req.flash('error_msg', 'el email ya existe');
          res.redirect('/');
      }  
-     const NewUser = new Users({name, email, password,Rol:"admin"});
+     const NewUser = new Users({name, email, password,Rol:"usuario"});
      NewUser.password = await NewUser.encryptPassword(password);
      await NewUser.save();
      

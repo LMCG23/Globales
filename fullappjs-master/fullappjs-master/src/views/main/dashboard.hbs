@@ -104,6 +104,8 @@
           </div>
         </div>
       </li>
+
+      
        <!-- Divider -->
       <hr class="sidebar-divider">
 
@@ -121,6 +123,28 @@
           </div>
         </div>
       </li>
+      
+
+      {{#if flag}}
+
+        <hr class="sidebar-divider">
+       <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsefive" aria-expanded="true" aria-controls="collapseTwo">
+         
+          <span>Citas administrador</span>
+        </a>
+        <div id="collapsefive" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">mis rutinas:</h6>
+            <a class="collapse-item" href="/citasAdmin/citasAdmin">Citas clientes</a>
+          </div>
+        </div>
+      </li>
+      {{else}}
+       <!-- Divider -->
+      
+      
+    {{/if}}
       <!-- Divider -->
       <hr class="sidebar-divider">
 

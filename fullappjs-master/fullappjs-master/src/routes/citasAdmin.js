@@ -68,15 +68,15 @@ router.post('/citas/newcitas', isAuthenticated, async (req, res) => {
         console.log(newCitas);
         await newCitas.save();
         req.flash("success_msg", 'Cita agregada');
-        res.redirect('/citas/allcitas');
+        res.redirect('/citasAdmin/citasAdmin');
     }
 });
 
 
-router.get('/citas/allcitas', isAuthenticated, async (req, res) => {
-    const listcitas = await Citas.find({ user: req.user.id }).sort({ date: 'desc' });
+router.get('/citasAdmin/citasAdmin', isAuthenticated, async (req, res) => {
+    const listcitas = await Citas.find().sort({ date: 'desc' });
     console.log(listcitas)
-    res.render('citas/allcitas', { listcitas });
+    res.render('citasAdmin/citasAdmin', { listcitas });
 })
 
 router.get('/citas/edit/:id', isAuthenticated, async (req, res) => {

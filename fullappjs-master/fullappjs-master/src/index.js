@@ -62,6 +62,7 @@ app.use(require('./routes/routines'));
 app.use(require('./routes/excercices'));
 app.use(require('./routes/students'));
 app.use(require('./routes/citas'));
+app.use(require('./routes/citasAdmin'));
 
 //Statis files.
 

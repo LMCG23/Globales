@@ -13,7 +13,7 @@ const UserSchema = new Schema({
        
     }],
 	DatosGraficos:[{
-		mes: {type: String, unique: true,dropDups: true },
+		mes: {type: String, unique: false,dropDups: true },
 		peso: {type: String},
 		PorcentajeGrasa: {type: String},
 		indiceDeMasa: {type: String}
