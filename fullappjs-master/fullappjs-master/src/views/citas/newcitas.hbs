@@ -344,13 +344,13 @@
         <form action='/citas/newcitas' method="POST">
            
             <div class="form-group">
-                <input type="text" name='nombre'  class="form-control" placeholder="Nombre">
+                <input type="hidden" name='nombre' value="{{req.user.name}}" class="form-control" placeholder="Nombre" >
             </div>
             <div class="form-group">
-                <input type="text" name='apellido'  class="form-control" placeholder="Primer apellido">
+                <input type="hidden" name='apellido' value="{{req.user.apellido}}"  class="form-control" placeholder="Primer apellido">
             </div>
             <div class="form-group">
-                <input type="text" name='apellido2'  class="form-control" placeholder="Segundo apellido">
+                <input type="hidden" name='apellido2' value="{{req.user.apellido2}}" class="form-control" placeholder="Segundo apellido">
             </div>
             <div class="form-group">
                 <label>Fecha Cita</label>
@@ -360,9 +360,7 @@
                 <label>Hora Cita</label>
                 <input type="time" min="05:00" max="21:00" name='hora' class="form-control">
             </div>
-            <div class="form-group">
-                <input type="text" name='profesor' class="form-control" placeholder="Profesor">
-            </div>
+            
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-block">Guardar</button> 
             </div>

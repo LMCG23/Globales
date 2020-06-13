@@ -35,11 +35,17 @@ router.get('/users/signup', (req, res) => {
 
 
 router.post('/users/signup', async(req, res)=>{
-   const { name, email, password, confirmpass} = req.body;
+   const { name, apellido,apellido2,email, password, confirmpass} = req.body;
    const errors = [];
 
    if(name.length <= 0){
     errors.push({text: 'El nombre no puede estar vacio'});
+   }
+   if(apellido.length <= 0){
+    errors.push({text: 'El primer apellido no puede estar vacio'});
+   }
+   if(apellido2.length <= 0){
+    errors.push({text: 'El segundo apellido no puede estar vacio'});
    }
 
    if(email.length <= 0){
@@ -53,7 +59,7 @@ router.post('/users/signup', async(req, res)=>{
        errors.push({text: 'La contraseña tiene menos de 6 caracteres'});
    }
    if(errors.length > 0){
-       res.render('users/signup', {errors,name, email, password, confirmpass});
+       res.render('login/register', {errors,name, apellido, apellido2,email, password, confirmpass});
    }
    else{
      const emailUser = await Users.findOne({email: email});
@@ -61,7 +67,7 @@ router.post('/users/signup', async(req, res)=>{
          req.flash('error_msg', 'el email ya existe');
          res.redirect('/');
      }  
-     const NewUser = new Users({name, email, password,Rol:"usuario"});
+     const NewUser = new Users({name, apellido, apellido2, email, password,Rol:"usuario"});
      NewUser.password = await NewUser.encryptPassword(password);
      await NewUser.save();
      

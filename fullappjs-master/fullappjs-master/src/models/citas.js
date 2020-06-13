@@ -8,7 +8,6 @@ const Citas = new Schema({
     apellido2:{type: String, required: false},
     fecha:{type: String, require: true},
     hora:{type:String, require: true},
-    profesor:{type:String},
     user:{type:String}
 
 });

@@ -11,8 +11,11 @@ router.get('/citas/add', isAuthenticated, (req, res) => {
 
 router.post('/citas/newcitas', isAuthenticated, async (req, res) => {
     // const user2 = req.user.id;
-    const { nombre, apellido, apellido2, fecha,hora,
-        profesor } = req.body;
+    const nombre = req.user.name;
+    const apellido = req.user.apellido;
+    const apellido2 = req.user.apellido2;
+    const { fecha,hora,
+         } = req.body;
     const errors = [];
 
 
@@ -37,10 +40,7 @@ router.post('/citas/newcitas', isAuthenticated, async (req, res) => {
 
         errors.push({ text: "Escoga la hora" });
     }
-    if (!profesor) {
-
-        errors.push({ text: "Eliga un profesor " });
-    }
+    
     console.log(req.body);
     if (errors.length > 0) {
         res.render('citas/newcitas', {
@@ -61,7 +61,7 @@ router.post('/citas/newcitas', isAuthenticated, async (req, res) => {
             apellido2,
             fecha,
             hora,
-            profesor,
+            
             
         });
         newCitas.user = req.user.id;
