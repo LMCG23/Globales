@@ -356,49 +356,42 @@
 
 
         <!-- Begin Page Content -->
-        <div class="container-fluid ">
-
-  {{#each arrayRutinas}}
-  <div class="col-md-8">
-    <div class="card">
-
-      
-      <div class="card-body">
-        <h5 class="card-title">{{name}}</h5>
-        <p class="card-text">
-          <br>
-         Esta rutina se debe realizar en un tiempo promedio de  <strong>{{time}}</strong>
-          <br>
-         {{description}}
-                 
-          .</p>
-    </p>
-           <a href="/Routines/iniciarRutina/{{_id}}" class="btn btn-primary">Iniciar Rutina</a>
+ <div class="container-fluid "></div>
+<div class="row ">
+       {{#each arrayRutinas}}
+  <div class="col-md-6">
+   
+   <div class="card">
+  <div class="card-body ">
+    <h3 class="card-title text-dark"> {{name}}</h3>
+    <p class="card-text">Esta rutina se debe realizar en un tiempo promedio de: {{time}}.</p>
+    <p>{{description}}.</p>
+    <a href="/Routines/iniciarRutina/{{_id}}" class="btn btn-primary">Iniciar Rutina</a>
          <a href="/Excercice/AllStudentExcercice/{{_id}}" class="btn btn-primary">Ver Ejercicios</a>
-      </div>
-    </div>
   </div>
+</div>
 
-
-  {{else}}
+  </div>
+   {{else}}
 
   <div class="card mx-auto"></div>
   <div class="card-body">
-    <h1>Hola </h1>
+    <h1>No tienes medidas </h1>
     <p style="color: white" class="lead"> Sin notas aún</p>
-    <a href='/notes/add' class="btn btn-primary btn-block btn-sm"> Crear</a>
+    <a href='/main/dashboard' class="btn btn-primary btn-block btn-sm"> Volver al menu</a>
   </div>
-  {{/each}}
-
-
-
-</div>
-
-
-
-</div>
-
-
+    {{/each}}
+  <!--<div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>-->
+            </div>
+            </div>
 
 
 
