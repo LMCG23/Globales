@@ -25,7 +25,8 @@ router.get('/Routines/listarRutinas/', isAuthenticated,async(req, res)=>{
 router.get('/Routines/AllRoutinesByAdmin/:id', isAuthenticated,async(req, res)=>{
     user = await Users.findById(req.params.id); 
     arrayRutinas = user.rutina;
-    res.render('Routines/AllRoutinesByAdmin',{arrayRutinas});
+    nombre = user.name;
+    res.render('Routines/AllRoutinesByAdmin',{arrayRutinas,nombre});
 });
 
 

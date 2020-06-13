@@ -63,25 +63,15 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">mis rutinas:</h6>
-            <a class="collapse-item" href="/main/dashboard">Rutina</a>
-            <a class="collapse-item" href="/main/dashboard">Mis rutina</a>
+             <a class="collapse-item" href="/main/dashboard">Volver al inicio</a>
+            <a class="collapse-item" href="/Excercice/CreateExcercice">Crear Ejercicios </a>
+             <a class="collapse-item" href="/users/getusers">Opciones de los usuarios </a>
+
           </div>
         </div>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fas fa-fw fa-wrench"></i>
-          <span>Deportes</span>
-        </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Mis deportes:</h6>
-            <a class="collapse-item" href="/">karate</a>
-            <a class="collapse-item" href="/">boxeo</a>        
-          </div>
-        </div>
-      </li>
+    
 
       <!-- Divider -->
       <hr class="sidebar-divider">
@@ -349,7 +339,9 @@
 
 
 
-
+<div class="text-center">
+  <h2 class="text-dark ">Rutinas de {{nombre}}</h2>
+</div></dic>
     <div class="container-fluid "></div>
 <div class="row ">
        {{#each arrayRutinas}}
