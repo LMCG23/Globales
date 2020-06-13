@@ -368,7 +368,14 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-
+        <div id="Mensaje" style="display: none" class="text-center" >
+          <h1 class="text-primary">
+            Felicidades has terminado tu rutina
+          </h1>
+            <button class="btn btn-primary"  onclick="window.location.href='/main/dashboard'"  >
+            Volver al menu 
+        </button>
+        </div>
 <div class="row">
   {{#each Ejercicios}}
   <div class="col-md-6" id={{nombre}}>
@@ -384,7 +391,7 @@
           Haciendo <strong>{{repeticiones}}</strong> repeticiones <br>
           En <strong>{{series}}</strong> series <br>
           </p>
-        <button  onclick="removeElement('{{nombre}}')" >
+        <button class="btn btn-primary" onclick="removeElement('{{nombre}}')" >
             Ejercicio terminado
         </button>
       </div>
@@ -536,11 +543,21 @@
   <script src="js/demo/chart-area-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
 <script>
+  var cont = 0;
 function removeElement(Nombre){
     console.log(Nombre)
     var element = document.getElementById(Nombre);
        element.parentNode.removeChild(element);
-    
+       
+       var decodedJson = decodeURIComponent("{{{encodedJson}}}");
+       var Ejercicios = JSON.parse(decodedJson);
+       console.log(Ejercicios);
+    cont++;
+    console.log(cont);
+
+    if(cont==Ejercicios.length){
+      document.getElementById("Mensaje").style.display="block"
+    }
 };
 </script>
 </body>
