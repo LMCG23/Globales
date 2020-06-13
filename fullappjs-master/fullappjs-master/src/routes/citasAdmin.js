@@ -109,7 +109,7 @@ router.put('/citas/editcita/:id', isAuthenticated, async (req, res) => {
 router.delete('/citas/delete/:id', isAuthenticated, async (req, res) => {
     await Citas.findByIdAndDelete(req.params.id);
     req.flash('success_msg', 'Cita eliminada correctamente');
-    res.redirect('/citas/allcitas');
+    res.redirect('/citasAdmin/citasAdmin');
 });
 
 module.exports = router;

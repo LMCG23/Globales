@@ -31,9 +31,16 @@ function number_format(number, decimals, dec_point, thousands_sep) {
   return s.join(dec);
 }
 var cat = localStorage.getItem('miGato');
-  var objetoObtenido = JSON.parse(cat);
-  //console.log(cat[0].peso);
-  //console.log(objetoObtenido[0].PorcentajeGrasa);
+var objetoObtenido = JSON.parse(cat);
+/*if("miGato" in localStorage){   
+  localStorage.removeItem("miGato")
+   var cat = localStorage.getItem('miGato');
+    var objetoObtenido = JSON.parse(cat);  }
+     else {
+     var cat = localStorage.getItem('miGato');
+      var objetoObtenido = JSON.parse(cat);  }*/
+//console.log(cat[0].peso);
+//console.log(objetoObtenido[0].PorcentajeGrasa);
 // Area Chart Example
 var l=[];
 for(var i=0;i<12;i++){
@@ -89,6 +96,7 @@ for(var i=0;i<12;i++){
 
   
 var ctx = document.getElementById("myAreaChart");
+if(ctx!=null){
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
@@ -176,3 +184,4 @@ var myLineChart = new Chart(ctx, {
     }
   }
 });
+}

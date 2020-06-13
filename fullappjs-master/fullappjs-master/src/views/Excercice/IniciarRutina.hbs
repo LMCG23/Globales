@@ -63,25 +63,13 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">mis rutinas:</h6>
-            <a class="collapse-item" href="/main/dashboard">Rutina</a>
-            <a class="collapse-item" href="/main/dashboard">Mis rutina</a>
+           <a class="collapse-item" href="/main/dashboard">Volver al inicio</a>
+                 <a class="collapse-item" href="/routines/listarMedidas/">Ver Historial de medidas</a>
           </div>
         </div>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fas fa-fw fa-wrench"></i>
-          <span>Deportes</span>
-        </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Mis deportes:</h6>
-            <a class="collapse-item" href="/">karate</a>
-            <a class="collapse-item" href="/">boxeo</a>        
-          </div>
-        </div>
-      </li>
+   
 
       <!-- Divider -->
       <hr class="sidebar-divider">
@@ -293,7 +281,7 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ user.name }}</span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                <img class="img-profile rounded-circle" src="https://team.brujulabike.com/wp-content/uploads/2018/01/icono-perfil.png">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -380,10 +368,17 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-
+        <div id="Mensaje" style="display: none" class="text-center" >
+          <h1 class="text-primary">
+            Felicidades has terminado tu rutina
+          </h1>
+            <button class="btn btn-primary"  onclick="window.location.href='/main/dashboard'"  >
+            Volver al menu 
+        </button>
+        </div>
 <div class="row">
   {{#each Ejercicios}}
-  <div class="col-md-6" id={{nombre}}>
+  <div class="col-md-6" id={{_id}}>
     <div class="card">
       <img class="card-img-top" src="{{foto}}" alt="Card image cap">
       
@@ -396,7 +391,7 @@
           Haciendo <strong>{{repeticiones}}</strong> repeticiones <br>
           En <strong>{{series}}</strong> series <br>
           </p>
-        <button  onclick="removeElement('{{nombre}}')" >
+        <button class="btn btn-primary" onclick="removeElement('{{_id}}')" >
             Ejercicio terminado
         </button>
       </div>
@@ -548,11 +543,22 @@
   <script src="js/demo/chart-area-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
 <script>
+  var cont = 0;
 function removeElement(Nombre){
-    console.log(Nombre)
-    var element = document.getElementById(Nombre);
-       element.parentNode.removeChild(element);
-    
+    console.log(Nombre);
+    var elements = document.getElementById(Nombre);
+    console.log(elements);
+    elements.parentNode.removeChild(elements);
+       
+       var decodedJson = decodeURIComponent("{{{encodedJson}}}");
+       var Ejercicios = JSON.parse(decodedJson);
+       console.log(Ejercicios);
+    cont++;
+    console.log(cont);
+
+    if(cont==Ejercicios.length){
+      document.getElementById("Mensaje").style.display="block"
+    }
 };
 </script>
 </body>
